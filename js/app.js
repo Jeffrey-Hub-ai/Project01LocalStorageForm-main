@@ -35,4 +35,31 @@ function validateField() {
 
     // Validate the Lenght of the field
     validateLength(this)
+
+    //Validate the email
+    if(this.type === 'email') {
+        validateEmail(this);
+    }
+}
+// Validate the length of the fields
+function validateLength(field) {
+    if(field.value.Length > 0 ) {
+        field.style.borderBottomColor = 'green';
+        field.classList.remove('error');
+    } else {
+        field.style.borderBottomColor = 'red';
+        field.classList.add('error');
+    }
+}
+// Validate email ( checks for @ in the value)
+function validateEmail(field) {
+    let emailText = field.value;
+    //check if the email text conatins @ sign
+    if(emailText.indexOf('@') !== -1){
+        field.style.borderBottomColor = 'green';
+        field.classList.remove('error');
+    } else {
+        field.style.borderBottomColor = 'red';
+        field.classList.add('error');
+    }
 }
